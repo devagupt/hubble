@@ -3,8 +3,6 @@ from PyInstaller.utils.hooks import collect_submodules
 HIDDEN_IMPORTS = [
     'ssl',
     'objgraph',
-    'Cryptodome',
-    'OpenSSL',
     'argparse',
     'base64',
     'HTMLParser',

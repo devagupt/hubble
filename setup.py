@@ -16,7 +16,6 @@ data_files = [('/usr/lib/systemd/system', ['pkg/source/hubble.service']),
 
 build_dependencies = [
     'objgraph',
-    'pyopenssl>=16.2.0',
     'requests>=2.13.0',
     'daemon',
     'pygit2<0.27.0',
