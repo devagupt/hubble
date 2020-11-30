@@ -5,7 +5,7 @@ import json
 import time
 import copy
 import os
-import hashlib
+# import hashlib
 
 import certifi
 import urllib3
@@ -256,16 +256,16 @@ class HEC(object):
         else:
             self.pool_manager = urllib3.PoolManager(**pm_kw)
 
-        if disk_queue:
-            md5 = hashlib.md5()
-            uril = sorted([ x.uri for x in self.server_uri ])
-            for u in uril:
-                md5.update(encode_something_to_bytes(u))
-            actual_disk_queue = os.path.join(disk_queue, md5.hexdigest())
-            log.debug("disk_queue for %s: %s", uril, actual_disk_queue)
-            self.queue = DiskQueue(actual_disk_queue, size=disk_queue_size, compression=disk_queue_compression)
-        else:
-            self.queue = NoQueue()
+        # if disk_queue:
+        #     md5 = hashlib.md5()
+        #     uril = sorted([ x.uri for x in self.server_uri ])
+        #     for u in uril:
+        #         md5.update(encode_something_to_bytes(u))
+        #     actual_disk_queue = os.path.join(disk_queue, md5.hexdigest())
+        #     log.debug("disk_queue for %s: %s", uril, actual_disk_queue)
+        #     self.queue = DiskQueue(actual_disk_queue, size=disk_queue_size, compression=disk_queue_compression)
+        # else:
+        #     self.queue = NoQueue()
 
     def _payload_msg(self, message, *a):
         event = dict(loggername='hubblestack.hec.obj', message=message % a)
