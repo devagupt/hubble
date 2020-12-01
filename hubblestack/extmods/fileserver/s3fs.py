@@ -213,7 +213,7 @@ def file_hash(load, fnd):
 
     if os.path.isfile(cached_file_path):
         ret['hsum'] = salt.utils.hashutils.get_hash(cached_file_path)
-        ret['hash_type'] = 'md5'
+        ret['hash_type'] = 'sha1'
 
     return ret
 
@@ -721,7 +721,7 @@ def _get_file_from_s3(metadata, saltenv, bucket_name, path, cached_file_path):
         file_meta = _find_file_meta(metadata, bucket_name, saltenv, path)
         if file_meta:
             if file_meta['ETag'].find('-') == -1:
-                cached_md5 = salt.utils.hashutils.get_hash(cached_file_path, 'md5')
+                cached_md5 = salt.utils.hashutils.get_hash(cached_file_path, 'sha1')
 
                 # hashes match we have a cache hit
                 if cached_md5 == file_meta['ETag']:

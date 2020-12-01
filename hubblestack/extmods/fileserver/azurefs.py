@@ -248,16 +248,16 @@ def update():
 
         for blob in blob_list:
             fname = os.path.join(path, blob.name)
-            update = False
-            if os.path.exists(fname):
-                # File exists, check the hashes
-                source_md5 = blob.properties.content_settings.content_md5
-                local_md5_hex = salt.utils.hashutils.get_hash(fname, 'md5')
-                local_md5 = base64.b64encode(bytes.fromhex(local_md5_hex))
-                if local_md5 != source_md5:
-                    update = True
-            else:
-                update = True
+            update = True
+            # if os.path.exists(fname):
+            #     # File exists, check the hashes
+            #     source_md5 = blob.properties.content_settings.content_md5
+            #     local_md5_hex = salt.utils.hashutils.get_hash(fname, 'md5')
+            #     local_md5 = base64.b64encode(bytes.fromhex(local_md5_hex))
+            #     if local_md5 != source_md5:
+            #         update = True
+            # else:
+            #     update = True
 
             if update:
                 if not os.path.exists(os.path.dirname(fname)):

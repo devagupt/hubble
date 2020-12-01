@@ -429,7 +429,7 @@ class GitProvider(object):
             )
             failhard(self.role)
 
-        hash_type = getattr(hashlib, self.opts.get('hash_type', 'md5'))
+        hash_type = getattr(hashlib, self.opts.get('hash_type', 'sha1'))
         if six.PY3:
             # We loaded this data from yaml configuration files, so, its safe
             # to use UTF-8

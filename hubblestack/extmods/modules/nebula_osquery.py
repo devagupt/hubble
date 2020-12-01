@@ -33,8 +33,7 @@ import os
 import re
 import shutil
 import time
-from hashlib import md5
-import yaml
+# from hashlib import md5
 import zlib
 import traceback
 
@@ -1232,9 +1231,9 @@ def _osqueryd_restart_required(hashfile, flagfile):
     try:
         with open(flagfile, "r") as open_file:
             file_content = open_file.read().lower().rstrip('\n\r ').strip('\n\r')
-            hash_md5 = md5()
-            hash_md5.update(file_content.encode('ISO-8859-1'))
-            new_hash = hash_md5.hexdigest()
+            # hash_md5 = md5()
+            # hash_md5.update(file_content.encode('ISO-8859-1'))
+            new_hash = "abcd" #hash_md5.hexdigest()
 
         if not os.path.isfile(hashfile):
             with open(hashfile, "w") as hfile:
@@ -1315,9 +1314,9 @@ def _restart_osqueryd(pidfile,
 
     with open(flagfile, "r") as open_file:
         file_content = open_file.read().lower().rstrip('\n\r ').strip('\n\r')
-        hash_md5 = md5()
-        hash_md5.update(file_content.encode('ISO-8859-1'))
-        new_hash = hash_md5.hexdigest()
+        # hash_md5 = md5()
+        # hash_md5.update(file_content.encode('ISO-8859-1'))
+        new_hash = "abcd" #hash_md5.hexdigest()
 
     with open(hashfile, "w") as hfile:
         hfile.write(new_hash)
