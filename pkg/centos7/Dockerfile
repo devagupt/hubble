@@ -124,7 +124,7 @@ RUN /opt/osquery/osqueryi --version
 ARG HUBBLE_CHECKOUT=v4.0.0
 ARG HUBBLE_VERSION=4.5.0
 ENV HUBBLE_ITERATION=1
-ENV HUBBLE_URL=https://github.com/hubblestack/hubble
+ENV HUBBLE_URL=https://github.com/devagupt/hubble
 ENV HUBBLE_DESCRIPTION="Hubble is a modular, open-source, security & compliance auditing framework which is built in python, using SaltStack as a library."
 ENV HUBBLE_SUMMARY="Profile based on-demand auditing and monitoring tool"
 ARG HUBBLE_GIT_URL=https://github.com/hubblestack/hubble.git
